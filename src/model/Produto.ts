@@ -11,6 +11,35 @@ export abstract class Produto {
         this._preco = preco
     }
 
+    public get id(): number {
+        return this._id;
+    }
+
+    public get nome(): string {
+        return this._nome;
+    }
+
+    public get preco(): number {
+        return parseFloat(this._preco.toFixed(2));
+    }
+
+    public set nome(novoNome: string) {
+        if (novoNome && novoNome.trim() !== '') {
+            this._nome = novoNome;
+        } else {
+            console.error("Erro: O nome do produto não pode ser vazio.");
+        }
+    }
+
+    public set preco(novoPreco: number) {
+        if (novoPreco > 0) {
+            this._preco = novoPreco;
+        } else {
+            console.error("Erro: O preço deve ser um valor positivo.");
+        }
+    }
+
+
     public exibirDetalhes(): void {
         console.log("Detalhes do produto")
         console.log(`ID: ${this._id}`)
