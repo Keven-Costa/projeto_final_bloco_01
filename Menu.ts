@@ -19,6 +19,7 @@ export function main() {
     let sistemaOperacional: string;
     let armazenamento: number;
     let resolucaoCamera: number;
+    let idEspecifico:number
     
     const tiposProduto = ['Notebook', 'Celular'];
 
@@ -49,6 +50,7 @@ export function main() {
         console.log("            2 - Editar/Atualizar Produto             ");
         console.log("            3 - Deletar Produto                      ");
         console.log("            4 - Listar Todos os Produtos             "); 
+        console.log("            5 - Listar um produto (pelo ID)             "); 
         console.log("            0 - Sair                                 ");
         console.log("*****************************************************");
 
@@ -131,6 +133,13 @@ export function main() {
             case 4:
                 console.log("\n\nOpção 4 - Listar Todos os Produtos");
                 produtos.listarTodos();
+                break;
+            
+            case 5:
+                console.log("\n\nOpção 5 - Listar um produto específico");
+                console.log("Digite o ID do produto específico: ")
+                idEspecifico = readlinesync.questionInt()
+                produtos.buscarPorId(idEspecifico);
                 break;
 
             default:
